@@ -1,0 +1,538 @@
+/* Woodland Field Notes: deep evergreen canvas, parchment panel, asymmetry, contour-map texture, amber focus states. */
+:root {
+  --evergreen: #17352a;
+  --deep: #0d231c;
+  --moss: #456b53;
+  --paper: #f4efe4;
+  --paper-2: #e9e0ce;
+  --ink: #1f3027;
+  --muted: #718076;
+  --amber: #d79b4a;
+  --amber-dark: #a96f2e;
+  --line: rgba(31, 48, 39, 0.16);
+  --ease: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background: var(--deep);
+  color: var(--ink);
+  font-family: 'DM Sans', system-ui, sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(420px, 0.88fr);
+  background: var(--deep);
+  overflow: hidden;
+}
+
+.forest {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(28px, 5vw, 76px);
+  color: #f8f3e7;
+  isolation: isolate;
+  background: linear-gradient(
+      90deg,
+      rgba(13, 35, 28, 0.02) 0%,
+      rgba(13, 35, 28, 0.1) 46%,
+      rgba(13, 35, 28, 0.8) 100%
+    ),
+    url('/manus-storage/wild-recovery-forest_15303fef.jpg') center/cover;
+}
+
+.forest::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.2;
+  background: radial-gradient(
+      circle at 12% 22%,
+      rgba(239, 210, 155, 0.55),
+      transparent 22%
+    ),
+    linear-gradient(135deg, transparent 50%, rgba(10, 27, 21, 0.75));
+}
+
+.forest::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.07;
+  background-image: url('/manus-storage/wild-recovery-contour_28929b8c.png');
+  background-size: 480px;
+  mix-blend-mode: screen;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  color: #fffdf6;
+  text-decoration: none;
+  width: max-content;
+}
+
+.brand img {
+  width: 48px;
+  height: 48px;
+  padding: 7px;
+  object-fit: contain;
+  border: 1px solid rgba(215, 155, 74, 0.62);
+  background: rgba(13, 35, 28, 0.34);
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.22));
+}
+
+.brand-name {
+  display: flex;
+  flex-direction: column;
+  line-height: 0.86;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.brand-name strong {
+  font-family: 'Fraunces', serif;
+  font-size: 19px;
+  letter-spacing: -0.03em;
+  text-transform: none;
+  font-weight: 700;
+}
+
+.forest-copy {
+  max-width: 630px;
+  margin-top: auto;
+  padding-top: 90px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--amber);
+}
+
+.eyebrow::before {
+  content: '';
+  width: 29px;
+  height: 1px;
+  background: var(--amber);
+}
+
+h1 {
+  max-width: 600px;
+  margin: 21px 0 22px;
+  color: #fffdf6;
+  font-family: 'Fraunces', serif;
+  font-size: clamp(48px, 6.2vw, 94px);
+  line-height: 0.9;
+  letter-spacing: -0.065em;
+  font-weight: 700;
+}
+
+.forest-copy p {
+  max-width: 430px;
+  margin: 0;
+  color: rgba(255, 253, 246, 0.76);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(20px, 2vw, 27px);
+  line-height: 1.14;
+}
+
+.field-note {
+  display: flex;
+  gap: 24px;
+  align-items: flex-end;
+  margin-top: 44px;
+  padding-left: 12px;
+  border-left: 1px solid rgba(215, 155, 74, 0.7);
+  color: rgba(255, 253, 246, 0.54);
+  font-size: 10px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.field-note span {
+  display: block;
+  color: rgba(255, 253, 246, 0.32);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.login-side {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(28px, 6vw, 88px);
+  background: var(--paper);
+}
+
+.login-side::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 58px;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(13, 35, 28, 0.13), transparent);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.login-card {
+  position: relative;
+  width: min(100%, 430px);
+  padding: clamp(30px, 4vw, 54px) clamp(24px, 4vw, 47px);
+  background: rgba(244, 239, 228, 0.94);
+  border: 1px solid rgba(31, 48, 39, 0.22);
+  box-shadow: 0 22px 60px rgba(31, 48, 39, 0.11);
+}
+
+.login-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.login-card::before {
+  content: '';
+  position: absolute;
+  inset: 14px;
+  pointer-events: none;
+  border: 1px solid rgba(31, 48, 39, 0.12);
+  background: linear-gradient(
+        90deg,
+        transparent 0 18px,
+        rgba(31, 48, 39, 0.12) 18px 19px,
+        transparent 19px 100%
+      )
+      0 0/100% 100% no-repeat,
+    linear-gradient(
+        0deg,
+        transparent 0 18px,
+        rgba(31, 48, 39, 0.12) 18px 19px,
+        transparent 19px 100%
+      )
+      0 0/100% 100% no-repeat;
+  opacity: 0.8;
+}
+
+.login-card::after {
+  content: 'FIELD NOTE / NORTHWOOD';
+  position: absolute;
+  right: -1px;
+  top: 34px;
+  padding: 6px 9px;
+  border: 1px solid rgba(169, 111, 46, 0.45);
+  background: var(--paper);
+  color: var(--amber-dark);
+  font: 700 8px/1 'DM Sans', sans-serif;
+  letter-spacing: 0.15em;
+  transform: rotate(90deg) translateX(100%);
+  transform-origin: top right;
+}
+
+.card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 42px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(31, 48, 39, 0.16);
+  color: var(--moss);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.card-meta i {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 7px;
+  border-radius: 50%;
+  background: var(--amber);
+  box-shadow: 0 0 0 4px rgba(215, 155, 74, 0.15);
+}
+
+.login-card h2 {
+  margin: 0 0 10px;
+  color: var(--evergreen);
+  font-family: 'Fraunces', serif;
+  font-size: 42px;
+  line-height: 0.96;
+  letter-spacing: -0.055em;
+}
+
+.intro {
+  margin: 0 0 31px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+label {
+  color: var(--evergreen);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.input-wrap {
+  position: relative;
+}
+
+input {
+  width: 100%;
+  height: 47px;
+  padding: 0 0 10px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  outline: 0;
+  color: var(--ink);
+  background: transparent;
+  font-size: 14px;
+  transition: border-color 180ms var(--ease), transform 180ms var(--ease);
+}
+
+input::placeholder {
+  color: #9aa49b;
+}
+
+input:focus {
+  border-color: var(--amber-dark);
+  transform: translateY(-1px);
+}
+
+.toggle-password {
+  position: absolute;
+  right: 0;
+  bottom: 12px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.toggle-password:hover {
+  color: var(--evergreen);
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: -4px;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.remember input {
+  width: 14px;
+  height: 14px;
+  accent-color: var(--amber-dark);
+}
+
+.text-button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--amber-dark);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.text-button:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.submit {
+  width: 100%;
+  height: 52px;
+  margin-top: 8px;
+  border: 1px solid var(--amber-dark);
+  background: var(--amber);
+  color: #2d251b;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  transition: transform 160ms var(--ease), background 180ms var(--ease),
+    box-shadow 180ms var(--ease);
+}
+
+.submit:hover {
+  background: #e4ae62;
+  box-shadow: 0 7px 18px rgba(169, 111, 46, 0.2);
+  transform: translateY(-2px);
+}
+
+.submit:active {
+  transform: scale(0.97);
+}
+
+.status {
+  min-height: 18px;
+  margin: 0;
+  color: var(--amber-dark);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.status.success {
+  color: #39704f;
+}
+
+.signup {
+  margin: 30px 0 0;
+  color: var(--muted);
+  text-align: center;
+  font-size: 12px;
+}
+
+.signup a {
+  color: var(--evergreen);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--amber);
+  text-underline-offset: 4px;
+}
+
+.legal {
+  position: absolute;
+  right: clamp(28px, 6vw, 88px);
+  bottom: 26px;
+  color: rgba(31, 48, 39, 0.5);
+  font-size: 10px;
+}
+
+@media (max-width: 900px) {
+  .page {
+    grid-template-columns: 1fr;
+  }
+  .forest {
+    min-height: 480px;
+  }
+  .login-side {
+    min-height: 570px;
+  }
+  .login-side::before {
+    width: 100%;
+    height: 18px;
+    background: linear-gradient(
+      180deg,
+      rgba(13, 35, 28, 0.18),
+      transparent
+    );
+  }
+  .legal {
+    position: static;
+    margin-top: 36px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 540px) {
+  .forest {
+    min-height: 440px;
+    padding: 28px 24px 36px;
+  }
+  .forest-copy {
+    padding-top: 70px;
+  }
+  h1 {
+    font-size: 57px;
+  }
+  .field-note {
+    gap: 15px;
+    margin-top: 30px;
+  }
+  .login-side {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    padding: 22px 18px 40px;
+  }
+  .login-card {
+    width: 100%;
+    max-width: 430px;
+    padding: 29px 24px 34px;
+  }
+  .card-meta {
+    margin-bottom: 34px;
+  }
+  .login-card h2 {
+    font-size: 37px;
+  }
+  .legal {
+    width: 100%;
+    margin-top: 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
