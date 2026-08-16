@@ -1,1 +1,103 @@
 
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Moss & Mercury: editorial minimalism, grounded spruce, mineral mint, and an asymmetric auth card. -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Morrow — a calm place to learn, connect, and grow." />
+    <title>Morrow — Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="icon" href="/manus-storage/morrow-compass-flower_8b71719d.png" />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="auth-card" aria-label="Morrow authentication">
+        <aside class="brand-panel">
+          <div class="ambient-orb orb-one"></div>
+          <div class="ambient-orb orb-two"></div>
+          <div class="ambient-orb orb-three"></div>
+          <div class="brand-panel__content">
+            <a class="brand-lockup" href="#" aria-label="Morrow home">
+              <span class="brand-mark"><img src="/manus-storage/morrow-compass-flower_8b71719d.png" alt="" /></span>
+              <span class="brand-name">morrow</span>
+            </a>
+            <div class="brand-copy">
+              <p class="eyebrow">A place to begin</p>
+              <h1>Keep your<br /><em>next step</em> close.</h1>
+              <p class="brand-description">Connect, learn, and grow with a thoughtful community built around forward motion.</p>
+            </div>
+            <div class="brand-footer">
+              <span class="footer-rule"></span>
+              <span>Quietly made for curious people</span>
+            </div>
+          </div>
+        </aside>
+
+        <section class="form-panel">
+          <div class="form-panel__inner">
+            <div class="mobile-brand brand-lockup">
+              <span class="brand-mark"><img src="/manus-storage/morrow-compass-flower_8b71719d.png" alt="" /></span>
+              <span class="brand-name">morrow</span>
+            </div>
+
+            <div class="form-heading">
+              <p class="eyebrow">Your learning space</p>
+              <h2 id="form-title">Welcome back</h2>
+              <p id="form-description">Enter your details to continue where you left off.</p>
+            </div>
+
+            <div class="mode-switch" role="tablist" aria-label="Authentication mode">
+              <button class="mode-button is-active" type="button" role="tab" aria-selected="true" data-mode="login">Log in</button>
+              <button class="mode-button" type="button" role="tab" aria-selected="false" data-mode="signup">Create account</button>
+              <span class="mode-indicator" aria-hidden="true"></span>
+            </div>
+
+            <div id="status-message" class="status-message" role="status" aria-live="polite"></div>
+
+            <form id="login-form" class="auth-form is-visible" novalidate>
+              <div class="field-group">
+                <label for="login-identity">Email or username</label>
+                <input id="login-identity" name="identity" type="text" autocomplete="username" placeholder="you@example.com" />
+                <span class="field-error" data-error-for="login-identity"></span>
+              </div>
+              <div class="field-group">
+                <div class="label-row"><label for="login-password">Password</label><a href="#" class="quiet-link">Forgot password?</a></div>
+                <div class="password-wrap">
+                  <input id="login-password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" />
+                  <button class="password-toggle" type="button" data-target="login-password" aria-label="Show password">Show</button>
+                </div>
+                <span class="field-error" data-error-for="login-password"></span>
+              </div>
+              <button class="submit-button" type="submit"><span>Log in</span><span class="button-arrow" aria-hidden="true">↗</span></button>
+              <p class="form-note">New to Morrow? <button class="inline-switch" type="button" data-mode="signup">Create an account</button></p>
+            </form>
+
+            <form id="signup-form" class="auth-form" novalidate>
+              <div class="form-grid">
+                <div class="field-group"><label for="signup-name">Full name</label><input id="signup-name" name="name" type="text" autocomplete="name" placeholder="Your full name" /><span class="field-error" data-error-for="signup-name"></span></div>
+                <div class="field-group"><label for="signup-email">Email</label><input id="signup-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" /><span class="field-error" data-error-for="signup-email"></span></div>
+              </div>
+              <div class="field-group"><label for="signup-username">Username</label><input id="signup-username" name="username" type="text" autocomplete="username" placeholder="Choose a username" /><span class="field-error" data-error-for="signup-username"></span></div>
+              <div class="form-grid">
+                <div class="field-group"><label for="signup-password">Password</label><div class="password-wrap"><input id="signup-password" name="password" type="password" autocomplete="new-password" placeholder="Create a password" /><button class="password-toggle" type="button" data-target="signup-password" aria-label="Show password">Show</button></div><span class="field-error" data-error-for="signup-password"></span></div>
+                <div class="field-group"><label for="signup-confirm">Confirm password</label><div class="password-wrap"><input id="signup-confirm" name="confirm" type="password" autocomplete="new-password" placeholder="Repeat password" /><button class="password-toggle" type="button" data-target="signup-confirm" aria-label="Show password">Show</button></div><span class="field-error" data-error-for="signup-confirm"></span></div>
+              </div>
+              <label class="checkbox-row"><input id="signup-terms" name="terms" type="checkbox" /><span class="custom-checkbox" aria-hidden="true"></span><span>I agree to the <a href="#" class="quiet-link">Terms and Conditions</a></span></label>
+              <span class="field-error terms-error" data-error-for="signup-terms"></span>
+              <button class="submit-button" type="submit"><span>Create account</span><span class="button-arrow" aria-hidden="true">↗</span></button>
+              <p class="form-note">Already have an account? <button class="inline-switch" type="button" data-mode="login">Log in</button></p>
+            </form>
+            <p class="demo-note">Front-end demonstration only. No account is created.</p>
+          </div>
+        </section>
+      </section>
+      <p class="page-caption">Morrow / 2026</p>
+    </main>
+    <script src="/script.js"></script>
+  </body>
+</html>
+
