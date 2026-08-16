@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Woodland Field Notes: editorial field-journal styling, asymmetric forest-first layout, trail-signal amber accents, tactile but quiet interactions. -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#17352a" />
+    <meta name="description" content="Sign in to Wild Recovery, a restorative forest adventure game." />
+    <link rel="icon" type="image/png" href="/manus-storage/wild-recovery-mark_1dd06d66.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Wild Recovery — Return to the canopy</title>
+  </head>
+  <body>
+    <main class="page">
+      <section class="forest" aria-label="Wild Recovery forest scene">
+        <a class="brand" href="#" aria-label="Wild Recovery home">
+          <img src="/manus-storage/wild-recovery-mark_1dd06d66.png" alt="" />
+          <span class="brand-name"><strong>Wild Recovery</strong><span>Forest restoration game</span></span>
+        </a>
+        <div class="forest-copy">
+          <div class="eyebrow">A living world awaits</div>
+          <h1>Return to<br />the canopy.</h1>
+          <p>Restore the wild, follow the quiet trails, and leave every place a little more alive.</p>
+          <div class="field-note"><div>Recovery log <span>04 / 18</span></div><div>Current range <span>Northwood</span></div></div>
+        </div>
+      </section>
+      <section class="login-side" aria-label="Login panel">
+        <div class="login-card">
+          <div class="card-meta"><span><i></i>Player access</span><span>WR-04</span></div>
+          <h2>Welcome back.</h2>
+          <p class="intro">Continue your recovery log and pick up where the forest last called.</p>
+          <form class="form" id="loginForm" novalidate>
+            <div class="field"><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required /></div>
+            <div class="field"><label for="password">Password</label><div class="input-wrap"><input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" minlength="4" required /><button class="toggle-password" type="button" id="togglePassword" aria-label="Show password">Show</button></div></div>
+            <div class="form-row"><label class="remember"><input type="checkbox" name="remember" /> Remember me</label><button class="text-button" type="button" id="forgotPassword">Forgot password?</button></div>
+            <button class="submit" type="submit">Continue your recovery log</button>
+            <p class="status" id="status" aria-live="polite"></p>
+          </form>
+          <p class="signup">New to the wild? <a href="#" id="createAccount">Create an account</a></p>
+        </div>
+        <div class="legal">By continuing, you agree to the player terms.</div>
+      </section>
+    </main>
+    <script>
+      // Woodland Field Notes: interactions are concise, tactile, and informative without backend assumptions.
+      const form = document.getElementById('loginForm');
+      const status = document.getElementById('status');
+      const password = document.getElementById('password');
+      const toggle = document.getElementById('togglePassword');
+      toggle.addEventListener('click', () => { const visible = password.type === 'text'; password.type = visible ? 'password' : 'text'; toggle.textContent = visible ? 'Show' : 'Hide'; toggle.setAttribute('aria-label', visible ? 'Show password' : 'Hide password'); });
+      form.addEventListener('submit', (event) => { event.preventDefault(); status.className = 'status'; if (!form.checkValidity()) { status.textContent = 'Please add a valid email and password to continue.'; form.reportValidity(); return; } status.className = 'status success'; status.textContent = 'Recovery log ready — connecting you to the forest.'; });
+      document.getElementById('forgotPassword').addEventListener('click', () => { status.className = 'status'; status.textContent = 'Password recovery is coming soon. For now, check your saved trail notes.'; });
+      document.getElementById('createAccount').addEventListener('click', (event) => { event.preventDefault(); status.className = 'status'; status.textContent = 'Account creation is coming soon — your first trail is almost ready.'; });
+    </script>
+  </body>
+</html>
